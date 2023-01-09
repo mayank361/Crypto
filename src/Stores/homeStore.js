@@ -56,9 +56,12 @@ const homeStore= create((set)=>({
             name: coin.item.name,
             image: coin.item.large,
             id:coin.item.id,
-            priceBtc: coin.item.price_btc
+            priceBtc: (coin.item.price_btc).toFixed(10),
+            priceUsd: (coin.price_btc * btcPrice).toFixed(10),
         }
       })
+
+      console.log(coins)
 
       set({coins,trending: coins})
     }
